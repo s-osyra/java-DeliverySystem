@@ -27,7 +27,7 @@ public class PackageController {
         return newPackage;
     }
     @ApiOperation(value="Update information of package", notes = "Provide unique package id and new information about package.")
-    @PutMapping (value = "package/update/{id}")
+    @PostMapping (value = "package/update/{id}")
     public Object patchPackage (@RequestBody Map<String, Object> aPackage,  @PathVariable("id") long id) {
         try {
             Package pack = packageRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid package Id:" + id));
